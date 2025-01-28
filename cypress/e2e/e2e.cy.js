@@ -42,10 +42,4 @@ describe('e2e', () => {
     checkout.completeOrder()
     checkout.verifyCheckoutComplete(this.userData.checkout.complete)
   })
-
-  it.skip('verify cart', () => {
-    base.navigateToURL(testData.page.inventory)
-    product.viewCart()
-    cart.verifyProductTitle()
-  })
 })

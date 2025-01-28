@@ -1,0 +1,19 @@
+{
+  "page": {
+    "inventory": "/inventory.html",
+    "cart": "/cart.html"
+  },
+  "loginData": {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  "sortByPrice": "lohi",
+  "checkout": {
+    "yourInformation": {
+      "firstName": "user",
+      "lastName": "test1",
+      "postalCode": "12345"
+    },
+    "complete": "Thank you for your order!"
+  }
+}

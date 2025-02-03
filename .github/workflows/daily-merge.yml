@@ -23,13 +23,13 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd cypress-swaglab
-          npm install  # Runs npm install inside the cypress-swaglab directory
+          cd cypress-swaglab  # Move into the cypress-swaglab directory
+          npm install  # Run npm install inside the cypress-swaglab directory
 
       - name: Run Cypress tests
         run: |
-          cd cypress-swaglab
-          npm run test:run  # Run Cypress tests
+          cd cypress-swaglab  # Ensure we're in the correct directory for Cypress tests
+          npm run test:run  # Run Cypress tests using the npm script defined
 
       - name: Checkout master branch
         if: success()  # Proceed only if tests pass

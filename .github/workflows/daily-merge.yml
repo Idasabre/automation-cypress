@@ -3,7 +3,7 @@ name: Daily Cypress Test and Merge
 on:
   schedule:
     # Runs every day at 3 PM Kuala Lumpur time (GMT+8)
-    - cron: '54 6 * * *'  # 3 PM GMT+8 is 7 AM UTC
+    - cron: '27 7 * * *'  # 3 PM GMT+8 is 7 AM UTC
   workflow_dispatch:  # Allows manual trigger if needed
 
 jobs:
@@ -22,10 +22,14 @@ jobs:
           node-version: '18'  # Specify Node.js version compatible with Cypress
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd cypress-swaglab
+          npm install  # Runs npm install inside the cypress-swaglab directory
 
       - name: Run Cypress tests
-        run: npm run test:run  # Run Cypress tests
+        run: |
+          cd cypress-swaglab
+          npm run test:run  # Run Cypress tests
 
       - name: Checkout master branch
         if: success()  # Proceed only if tests pass

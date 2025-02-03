@@ -2,7 +2,7 @@ name: Daily Run Cypress Test
 on:
   schedule:
     # Runs every day at 3 PM Kuala Lumpur time (GMT+8)
-    - cron: '27 7 * * *'  # 3 PM GMT+8 is 7 AM UTC
+    - cron: '35 8 * * *'  # 4 PM GMT+8 is 8 AM UTC - 35 min
   workflow_dispatch:  # Allows manual trigger if needed
 
 jobs:

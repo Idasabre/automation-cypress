@@ -1,8 +1,7 @@
 name: Daily Run Cypress Test
 on:
   schedule:
-    # Runs every day at 3 PM Kuala Lumpur time (GMT+8)
-    - cron: '41 8 * * *'  # 4 PM GMT+8 is 8 AM UTC - 41 min
+    - cron: '15 9 * * *'  # 5 PM GMT+8 is 9 AM UTC - 15 min
   workflow_dispatch:  # Allows manual trigger if needed
 
 jobs:
@@ -13,20 +12,20 @@ jobs:
       - name: Checkout branch-1
         uses: actions/checkout@v3
         with:
-          ref: branch-1  # Check out the branch-1 branch
+          ref: branch-1  
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Specify Node.js version compatible with Cypress
+          node-version: '18' 
 
       - name: Install dependencies
         run: |
-          cd cypress-swaglab  # Move into the cypress-swaglab directory
-          rm -rf node_modules  # Remove node_modules folder if it exists
-          npm install  # Run npm install inside the cypress-swaglab directory
+          cd cypress-swaglab  
+          rm -rf node_modules  
+          npm install  
 
       - name: Run Cypress tests
         run: |
-          cd cypress-swaglab  # Ensure we're in the correct directory for Cypress tests
-          npm run test:run  # Run Cypress tests using the npm script defined
+          cd cypress-swaglab 
+          npm run test:run  

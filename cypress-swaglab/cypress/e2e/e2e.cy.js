@@ -4,7 +4,7 @@ import ProductPage from '../pageObjects/ProductPage.js'
 import CartPage from '../pageObjects/CartPage.js'
 import CheckoutPage from '../pageObjects/CheckoutPage.js'
 
-import testData from '../fixtures/testdata.json';
+import testdata from '../fixtures/testdata.json';
 
 describe('e2e', () => {
 
@@ -16,7 +16,7 @@ describe('e2e', () => {
 
 
   beforeEach( function() {
-    cy.fixture('testData').then((userData) => {
+    cy.fixture('testdata').then((userData) => {
       this.userData = userData
       const loginData = this.userData.loginData
       login.loginWithSession(loginData.username,loginData.password)

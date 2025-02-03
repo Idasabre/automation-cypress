@@ -1,0 +1,46 @@
+name: Daily Cypress Test and Merge
+
+on:
+  schedule:
+    # Runs every day at 3 PM Kuala Lumpur time (GMT+8)
+    - cron: '40 2 * * *'  # 3 PM GMT+8 is 7 AM UTC
+  workflow_dispatch:  # Allows manual trigger if needed
+
+jobs:
+  run-cypress-and-merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout branch-1
+        uses: actions/checkout@v3
+        with:
+          ref: branch-1  # Check out the branch-1 branch
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Specify Node.js version compatible with Cypress
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        run: npm run test:run  # Run Cypress tests
+
+      - name: Checkout master branch
+        if: success()  # Proceed only if tests pass
+        run: |
+          git config user.name "Idasabre"
+          git config user.email "nhmsabre@gmail.com"
+          git checkout master
+
+      - name: Merge branch-1 into master
+        if: success()
+        run: |
+          git merge branch-1 --no-ff -m "Automated daily merge from branch-1 to master"
+          git push origin master
+
+      - name: Push changes to branch-1 (optional)
+        if: success()
+        run: |
+          git push origin branch-1

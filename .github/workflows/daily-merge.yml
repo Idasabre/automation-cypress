@@ -3,7 +3,7 @@ name: Daily Cypress Test and Merge
 on:
   schedule:
     # Runs every day at 3 PM Kuala Lumpur time (GMT+8)
-    - cron: '40 2 * * *'  # 3 PM GMT+8 is 7 AM UTC
+    - cron: '50 6 * * *'  # 3 PM GMT+8 is 7 AM UTC
   workflow_dispatch:  # Allows manual trigger if needed
 
 jobs:

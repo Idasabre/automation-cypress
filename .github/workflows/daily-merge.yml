@@ -37,7 +37,7 @@ jobs:
         run: |
           git config user.name "Idasabre"
           git config user.email "nhmsabre@gmail.com"
-          git checkout master
+          git checkout main
 
       - name: Merge branch-1 into master
         if: success()

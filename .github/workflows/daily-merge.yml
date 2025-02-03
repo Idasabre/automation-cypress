@@ -24,6 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd cypress-swaglab  # Move into the cypress-swaglab directory
+          rm -rf node_modules  # Remove node_modules folder if it exists
           npm install  # Run npm install inside the cypress-swaglab directory
 
       - name: Run Cypress tests

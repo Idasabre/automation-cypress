@@ -1,7 +1,7 @@
 name: Daily Run Cypress Test
 on:
   schedule:
-    - cron: '15 9 * * *'  # 5 PM GMT+8 is 9 AM UTC - 15 min
+    - cron: '03 9 * * *'  # 5 PM GMT+8 is 9 AM UTC - 03 min
   workflow_dispatch:  # Allows manual trigger if needed
 
 jobs:
